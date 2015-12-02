@@ -58,10 +58,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			resolve: {
 				profile: ['$stateParams', 'profileService', function($stateParams, profileService) {
 					return profileService.get($stateParams.id);
-				}]
-				//profileImage: ['$stateParams', 'authService', function($stateParams, authService) {
-				//	return authService.getImage($stateParams.id);
-				//}]
+				}]]
 			}
 		})
 
