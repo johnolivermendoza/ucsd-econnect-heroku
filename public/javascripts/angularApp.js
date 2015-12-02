@@ -1,12 +1,4 @@
-/*global angular */
-
-/**
- * The main TodoMVC app module
- *
- * @type {angular.Module}
- */
 var app = angular.module('econnect', ['ui.router', 'ngFileUpload', 'ngAnimate', 'ui.bootstrap']);
-
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
@@ -23,9 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 					return postService.getAll();
 				}]
 			}
-		});  // temporary end 
-
-		/*
+		})
 		// Login page
 		.state('login', {
 			url: '/login',
@@ -120,9 +110,114 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 					return posts.get($stateParams.id);
 				}]
 			}
-		}); */
+		});
 		
 
 	$urlRouterProvider.otherwise('/home');
 
 }]);
+
+
+
+
+app.controller('MainCtrl', ['$scope', 'projectService', '$filter', 'authService', 'postService', '$window', function($scope, projectService, $filter, authService, postService, $window) {
+	$scope.projects = projectService.projects;
+	$scope.posts = postService.posts;
+	$scope.isLoggedIn = authService.isLoggedIn;
+
+	$scope.random = function() {
+		return 0.5 - Math.random();
+	};  
+
+
+	$scope.addPost = function() {
+		if(!$scope.postDesc || $scope.postDesc === '') {
+		 return; 
+		}
+
+		var newPost = {
+			title: "Custom Post",
+			date: new Date(),
+			description: $scope.postDesc
+		};
+		// Call the 'posts' Service and create a new post
+		postService.createPost(newPost.title, newPost.description).success(function() {
+			$window.location.reload();
+		});
+
+
+
+		$scope.title = '';
+		$scope.link = '';
+	};
+
+	$scope.incrementUpvotes = function(post) {
+		posts.upvote(post);
+	};
+
+	$scope.removePost = function(post) {
+		posts.removePost(post);
+	};
+
+	var orderBy = $filter('orderBy');
+	$scope.order = function(predicate, reverse) {
+		$scope.posts = orderBy($scope.posts, predicate, reverse);
+	};
+	$scope.order('--upvotes', true);
+}]);
+
+
+
+app.factory('postService', ['$http', 'authService', function($http, authService) {
+	var postService = {
+		// initialize the posts as empty
+		posts: []
+	};
+	
+	postService.createPost = function(title, desc) {
+		return $http.post('/posts/' + title + '/' + desc).success(function(data){
+			postService.posts.push(data);
+		});
+	};
+
+	postService.getAll = function() {
+		return $http.get('/posts').success(function(data) {
+			angular.copy(data, postService.posts);
+		});
+	};
+
+
+
+	return postService;
+}]);
+
+
+
+
+
+
+
+
+
+app.controller('NavCtrl', ['$scope','authService', function($scope, authService) {
+	$scope.isLoggedIn = authService.isLoggedIn;
+	$scope.currentUser = authService.currentUser;
+	$scope.currentUserId = authService.currentUserId;
+	$scope.logOut = authService.logOut;
+}]);  
+
+
+
+
+
+
+app.directive('footer', function () {
+    return {
+        restrict: 'A',
+        replace: true,
+        templateUrl: "/footer.html",
+        controller: ['$scope', '$filter', function ($scope, $filter) {
+            // Behavior goes here
+        }]
+    }
+});

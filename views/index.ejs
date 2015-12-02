@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>UCSD E-Connect</title>
+    
+        <script src="/scripts/angular/angular.js"></script>
+        <script src="/scripts/ng-file-upload/dist/ng-file-upload-shim.min.js"></script> 
+        <script src="/scripts/ng-file-upload/dist/ng-file-upload.min.js"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+        <link href="/stylesheets/styles.css" rel="stylesheet" type="text/css" />
+
+        
+    </head>
+
+    <body ng-app="econnect" ng-controller="MainCtrl">
+        <nav class="navbar navbar-default" ng-controller="NavCtrl">
+            <ul class="nav navbar-nav pull-left">
+                <li><a href="/#/home">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li ng-show="isLoggedIn()"><a href="/#/profiles/{{ currentUserId() }}">{{ currentUser() }}</a></li>
+                <li><a href="/#/profiles">Profiles</a></li>
+                <li><a href="/#/projects">Projects</a></li>
+                <li ng-show="isLoggedIn()"><a href="/#/profiles/{{ currentUserId() }}/addproject">Create New Project</a></li>
+                <li ng-show="isLoggedIn()"><a href="/" ng-click="logOut()">Log Out</a></li>
+
+
+                <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
+                <li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-container">
+            <ui-view></ui-view>
+        </div>
+
+        <div footer></div>
+    </body>
+
+    <script src="/javascripts/angularApp.js"></script>
+    <script src="/javascripts/authControllerService.js"></script>
+    <script src="/javascripts/postsControllerService.js"></script>
+    <script src="/javascripts/profilesControllerService.js"></script>
+    <script src="/javascripts/projectsControllerService.js"></script>
+
+</html>
