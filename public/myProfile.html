@@ -1,0 +1,131 @@
+<div class="my-profile-container">
+    <form ng-submit="updateProfile()" class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC <img class="img-responsive img-circle" style="margin: 0 auto;" ng-src=""></img>    -->
+				
+				<img class="img-responsive img-circle" style="margin: 0 auto;" style="-webkit-user-select: none" src="./upload/{{profile._id}}" >
+
+
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						{{profile.firstName}} {{profile.lastName}}
+					</div>
+					<div class="profile-usertitle-job">
+						{{profile.job}}
+					</div>
+				</div>
+
+					<!-- END SIDEBAR USER TITLE -->
+					<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+					<button id="openModal" name="econnect_invite" class="btn btn-success btn-sm">Invite</button>
+					<button type="button" ng-show="currentUserId() === profile._id && isEditing === false" class="btn btn-default btn-sm" ng-click="isEditing = true;">Edit Profile</button>
+				</div>
+
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav tabs-menu">
+						<li ng-class="{'active': checkProfileTab(1)}">
+							<a href="" ng-click="setProfileTab(1)">
+							<i class="glyphicon "></i>
+								Profile </a>
+						</li>
+						<li ng-class="{'active': checkProfileTab(2)}">
+							<a href="" ng-click="setProfileTab(2)">
+							<i class="glyphicon "></i>
+								My Projects </a>
+						</li>
+						<li ng-class="{'active': checkProfileTab(3)}">
+							<a href="" ng-click="setProfileTab(3)">
+							<i class="glyphicon "></i>
+								Contact </a>
+						</li>
+					</ul>
+				</div>
+			<!-- END MENU -->
+			</div>
+		</div>
+		<div class="my-profile-content col-md-9 tab">
+            <div id="profile-tab" class="tab-content" ng-show="checkProfileTab(1)">
+			    <table class="table table-user-information">
+			   		<tbody>
+			   			<tr>
+			   				<td>About Me</td>
+                    		<td>
+                    			<div class="profile-about-me" contenteditable="{{ isEditing }}"  ng-class="{'edit-mode' : isEditing}" ng-model="profile.aboutMe">
+                    				
+                    			</div>
+                			</td>
+                    	</tr>
+                    	<tr>
+			   				<td>Experience</td>
+                    		<td>
+                    			<div class="profile-experience" ng-attr-contenteditable="{{ isEditing }}"  ng-class="{'edit-mode' : isEditing}" ng-model="profile.experience">
+                    			</div>
+                			</td>
+                    	</tr>
+                    	<tr>
+			   				<td>Skills</td>
+                    		<td>
+                    			<div class="profile-skills editable" ng-attr-contenteditable="{{ isEditing }}"  ng-class="{'edit-mode' : isEditing}" ng-model="profile.skills">
+                    			</div>
+                    		</td>
+                    	</tr>
+                    	<tr>
+			   				<td>Interests</td>
+                    		<td>
+                    			<div class="profile-skills editable" ng-attr-contenteditable="{{ isEditing }}"  ng-class="{'edit-mode' : isEditing}" ng-model="profile.interests">
+                    			</div>
+                    		</td>
+                    	</tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="projects-tab" class="tab-content" ng-show="checkProfileTab(2)">
+            	<div class="project-content" ng-repeat="project in profile.projects">
+			        <div class="project-image">
+			            <!-- <img ng-src="{{getProfileImage('user.jpeg')}}"></img> -->
+			            <a href="#/projects/{{project._id}}">
+			            	<img class="img-responsive" ng-src="https://ksr-ugc.imgix.net/projects/1805765/photo-original.jpg?v=1431009885&w=338&h=250&fit=crop&auto=format&q=92&s=c6f47b4efe167caf2ea4ed2f86da28b5"></img>
+			            </a>
+			        </div>
+			        <div class="project-name">
+			            <h3 class="project-name"><div ng-attr-contenteditable="{{ isEditing }}"  ng-class="{'edit-mode' : isEditing}" ng-model="project.name">
+			            </div></h3>
+			            <div class="project-desc" ng-attr-contenteditable="{{ isEditing }}"  ng-class="{'edit-mode' : isEditing}" ng-model="project.description"></div>
+
+			            <!-- {{project.description | limitTo: 300 }}{{project.description > 300 ? '...' : ''}}</span>
+			            {{project._id}} -->
+			        </div>
+			    </div>
+            </div>
+            <div id="contact-tab" class="tab-content" ng-show="checkProfileTab(3)">
+			   <table class="table table-user-information">
+                    <tbody>
+                    	<tr>
+			   				<td>Email Address</td>
+                    		<td>
+                    			<div ng-attr-contenteditable="{{ isEditing }}"  ng-class="{'edit-mode' : isEditing}" ng-model="profile.email">
+                    			</div>
+                    		</td>
+                    	</tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="profile-edit-button pull-right">
+				<button ng-show="currentUserId() === profile._id && isEditing === true" class="btn btn-default" ng-click="cancelEditing()">
+					Cancel
+				</button>
+				
+				<button ng-show="currentUserId() === profile._id && isEditing === true" class="btn btn-primary" type="submit" >
+					Save
+				</button>
+			</div>
+		</div>
+		
+	</form> 
+</div>

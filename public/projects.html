@@ -1,0 +1,32 @@
+<div class="projects-container container-fluid">
+    <div class="page-header">
+        <h1>Check out these Projects</h1>
+    </div>
+
+
+    <div class="sorting-container">
+        <fieldset class="pull-left filter-container sort-group">
+            <p><label for="project_select">Sort By: </label>
+            <select name="project_select" style="display: inline-block" class="form-control" ng-options="item as item.label for item in sortItems" 
+   ng-model="item" ng-change="updateSort()"></p>
+            </select>
+        </fieldset>
+
+        <div class="form-group pull-right search-container">
+            <input ng-model="queryProject" class="form-control" name="query" placeholder="Search Projects"><br/>
+        </div>
+    </div>
+    
+    <!-- Projects Row -->
+    <div class="col-md-4 project-content" ng-repeat="project in projects | filter: queryProject">
+        <div class="project-image">
+            <!-- <img ng-src="{{getProfileImage('user.jpeg')}}"></img> -->
+            <img class="img-responsive" ng-src="https://ksr-ugc.imgix.net/projects/1805765/photo-original.jpg?v=1431009885&w=338&h=250&fit=crop&auto=format&q=92&s=c6f47b4efe167caf2ea4ed2f86da28b5"></img>
+        </div>
+        <div class="project-name">
+            <h3 class="project-name"><a href="#/projects/{{project._id}}">{{project.name}}</a></h3>
+            <span class="project-desc">{{project.description | limitTo: 300 }}{{project.description > 300 ? '...' : ''}}</span>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,401 @@
+/* Global */
+
+.main-container {
+	padding: 0 0px;
+}
+
+
+
+/* Home page */
+
+.home-page-container {
+
+}
+
+
+.intro-header {
+  background-color: #808080;
+  background: no-repeat center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 50px;
+}
+.intro-header .site-heading,
+.intro-header .post-heading,
+.intro-header .page-heading {
+  padding: 100px 0 50px;
+  color: white;
+}
+
+
+.featured-project-image img {
+  float: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 500px;
+}
+
+
+
+
+
+
+
+
+
+/* Login Page */
+
+
+.login-container {
+	padding: 0px 30px;
+}
+
+.login-container form input {
+	width: 500px;
+}
+
+
+/* Register Page */
+
+
+.register-container {
+	padding: 0px 30px;
+}
+
+.register-container form input {
+	width: 300px;
+}
+
+.register-container form textarea {
+}
+
+.register-container .preview-picture {
+  height: 200px;
+  width: 200px;
+}
+
+
+
+
+
+
+/* Profiles Page */
+.profile-container {
+}
+
+
+.profiles-container .profile-content {
+	height: 350px;
+}
+
+.profiles-container .profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+}
+
+
+.profiles-container .profile-text {
+	margin-left: auto;
+    margin-right: auto;
+}
+
+
+.profiles-container .profile-name {
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+.profiles-container .profile-desc {
+	width: 50px;
+	overflow: hidden;
+}
+
+
+
+
+
+
+/* /* Profile Content and Sidebar */
+.my-profile-container {
+  padding: 20px;
+}
+
+.my-profile-container .profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+.my-profile-container .my-profile-sidebar img {
+	margin: 0 auto;
+}
+
+.my-profile-container .profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.my-profile-container .profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.my-profile-container .profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.my-profile-container .profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.my-profile-container .profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.my-profile-container .profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.my-profile-container .profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.my-profile-container .profile-usermenu {
+  margin-top: 30px;
+}
+
+.my-profile-container .profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.my-profile-container .profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.my-profile-container .profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.my-profile-container .profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.my-profile-container .profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.my-profile-container .profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.my-profile-container .profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+.my-profile-container .profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+  min-width: 80%;
+}
+
+.my-profile-container .tab-content {
+  vertical-align: middle;
+  padding: 30px;
+}
+
+.my-profile-content {
+
+}
+
+.edit-mode {
+  background-color: #e9e9e9;
+}
+
+.profile-edit-button {
+  padding: 0 40px;
+}
+
+
+
+
+
+
+
+
+/* Add new project */
+.projects-container .project-content {
+  padding: 20px;
+}
+
+.projects-container .project-image img {
+  float: none;
+  margin: 0 auto;
+}
+
+
+.add-project-container {
+	padding: 0px 30px;
+}
+
+.add-project-container form input {
+	width: 300px;
+}
+
+.add-project-container form textarea {
+}
+
+
+/* Show all projects */
+.projects-container {
+
+}
+
+.projects-container .project-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.projects-container .project-name {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.projects-container .project-desc {
+  width: 50px;
+  overflow: hidden;
+}
+
+.project-image img{
+  margin: 0 auto;
+}
+
+
+
+
+/* Search and Sort */
+.sorting-container {
+  height: 70px;
+  width: 100%;
+  display: inline-block;
+}
+
+.sorting-container .sort-group {
+  white-space: nowrap;
+}
+
+.search-container {
+  width: 300px;
+}
+
+
+
+
+
+/* Project View Page */
+
+#banner-image {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 150px;
+}
+
+/* Border */
+.box-divider {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+
+.textbox {
+  padding: 5px;
+}
+
+.member-info h4 {
+  text-align: center;
+}
+
+.calendar img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#join-team-btn {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+.footer-container {
+  width: 100%;
+  padding: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+.delete-btn {
+	position: absolute;
+}
+
+.post-content {
+  padding: 2px;
+}
+.new-post-form {
+  margin-top: 20px;
+}
+.new-post-form input {
+  display: block;
+}
+.new-post-form button {
+  margin-top: 20px;
+}
+
+post-container {
+	width: 100%;
+}
