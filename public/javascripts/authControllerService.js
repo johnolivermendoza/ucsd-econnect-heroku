@@ -1,3 +1,5 @@
+var app = angular.module('econnect');
+
 app.factory('authService', ['$http', '$window', function($http, $window) {
 	var authService = {};
 

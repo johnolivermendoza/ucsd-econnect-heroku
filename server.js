@@ -29,7 +29,12 @@ var InvitesModel = require('./models/Invites');
  */
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/econnect', function (error) {
     if (error) console.error(error);
-    else console.log('mongo connected to: ' + process.env.MONGOLAB_URI);
+    else {
+        if (process.env.MONGOLAB_URI === undefined) 
+            console.log('mongo connected to: mongodb://localhost/econnect');
+        else 
+            console.log('mongo connected to: ' + process.env.MONGOLAB_URI);
+    }
 });
 
 

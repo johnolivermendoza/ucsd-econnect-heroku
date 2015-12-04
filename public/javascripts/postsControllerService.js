@@ -1,3 +1,6 @@
+var app = angular.module('econnect');
+
+
 app.controller('PostsCtrl', ['$scope', 'posts', 'post', 'authService', function($scope, posts, post, authService) {
 	$scope.post = post;
 	$scope.isLoggedIn = authService.isLoggedIn;

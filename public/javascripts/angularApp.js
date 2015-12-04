@@ -1,5 +1,6 @@
 var app = angular.module('econnect', ['ui.router', 'ngFileUpload', 'ngAnimate', 'ui.bootstrap']);
 
+
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
@@ -58,7 +59,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 			resolve: {
 				profile: ['$stateParams', 'profileService', function($stateParams, profileService) {
 					return profileService.get($stateParams.id);
-				}]]
+				}]
 			}
 		})
 

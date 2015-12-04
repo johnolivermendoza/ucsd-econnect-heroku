@@ -1,4 +1,4 @@
-
+var app = angular.module('econnect');
 
 
 app.controller('ProjectCtrl', ['$scope', 'projectService', 'authService', '$filter', function($scope, projectService, authService, $filter) {

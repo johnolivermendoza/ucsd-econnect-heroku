@@ -176,31 +176,6 @@ router.post('/login', function(req, res, next){
 });
 
 
-
-
-
-/*
-// TODO Needs work
-router.get('/profileimage',function(req, res){
-    fs.readFile('./public/images/' + reg.params.file, function(err, image){
-        if(err) return res.status(401).send('Fail');
-        var base64Image = new Buffer(image, 'binary').toString('base64');
-        return res.sent('data:image/' 
-        + 
-        reg.params.file.split('.')[1]
-        +
-        ';base64,'
-        +
-        base64Image
-        );
-    });
-});*/
-
-
-
-
-
-
 // Preloads all profiles
 router.get('/profiles', function(req, res, profiles) {
 	User.find(function(err, profiles){
